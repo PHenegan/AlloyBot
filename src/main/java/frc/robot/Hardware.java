@@ -4,8 +4,6 @@ import edu.wpi.first.wpilibj.SpeedController;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
-import org.montclairrobotics.alloy.frc.FRCMotor;
-
 public class Hardware {
 
     //DriveTrain motors
