@@ -13,15 +13,18 @@ public class Hardware {
     public static WPI_TalonSRX dt_bl;
 
     //DriveTrain motor ids
-    public final static int fr_id = 2;
-    public final static int fl_id = 3;
-    public final static int br_id = 1;
-    public final static int bl_id = 0;
+    public final static int DT_FRONT_LEFT = 2;
+    public final static int DT_FRONT_RIGHT = 3;
+    public final static int DT_BACK_LEFT = 1;
+    public final static int DT_BACK_RIGHT = 0;
     
 
     public static void init() {
-        //dt_fr = new WPI_TalonSRX()
-    }
+        dt_fr = new WPI_TalonSRX(DT_FRONT_RIGHT);
+        dt_fl = new WPI_TalonSRX(DT_FRONT_LEFT);
+        dt_br = new WPI_TalonSRX(DT_BACK_RIGHT);
+        dt_bl = new WPI_TalonSRX(DT_BACK_LEFT);
+        }
 
 
 }
