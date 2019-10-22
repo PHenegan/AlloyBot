@@ -6,13 +6,12 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot;
-import edu.wpi.first.wpilibj.IterativeRobot;
-import edu.wpi.first.wpilibj.PWMSpeedController;
-import edu.wpi.first.wpilibj.Spark;
-import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import org.montclairrobotics.alloy.core.RobotCore;
+
+import org.montclairrobotics.alloy.drive.DriveModule;
 import org.montclairrobotics.alloy.frc.FRCAlloy;
+import org.montclairrobotics.alloy.frc.FRCMotor;
+import org.montclairrobotics.alloy.motor.MotorGroup;
+import org.montclairrobotics.alloy.vector.XY;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -22,12 +21,17 @@ import org.montclairrobotics.alloy.frc.FRCAlloy;
  * project.
  */
 public class Robot extends FRCAlloy {
-
+  
+  //drive train motors
+  FRCMotor fr = new FRCMotor(Hardware.dt_fr);
+  FRCMotor fl = new FRCMotor(Hardware.dt_fl);
+  FRCMotor br = new FRCMotor(Hardware.dt_br);
+  FRCMotor bl = new FRCMotor(Hardware.dt_bl);
+  //DriveModule rightModule = new DriveModule();
+  //DriveModule leftModule = new DriveModule();
 
   public void robotSetup() {
     Hardware.init();
-
-
   }
 
   public void initialization(){
