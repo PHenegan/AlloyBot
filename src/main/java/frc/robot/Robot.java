@@ -27,31 +27,33 @@ import org.montclairrobotics.alloy.vector.XY;
  */
 public class Robot extends FRCAlloy {
 
-  // drive train motors
-
   DriveTrain driveTrain;
 
   public void robotSetup() {
   }
 
-  public void initialization(){
+  public void initialization() {
     Hardware.init();
-
+    //All this is is an instantiation with a lot of stuff it in: Object name = new Object(parameters);
+    //where the parameters also have new objects inside of them
     driveTrain = new MecanumDrive(
-      new MotorModule(
-        new Polar(-1, new Angle(-45)), new XY(-1, 1), new FRCEncoder(Hardware.dt_fl), new PID(0,0,0), new FRCMotor(Hardware.dt_fl) 
-      ),
-      new MotorModule(
-        new Polar(1, new Angle(45)), new XY(1, 1), new FRCEncoder(Hardware.dt_fr), new PID(0,0,0), new FRCMotor(Hardware.dt_fr)
-      ),
-      new MotorModule(
-        new Polar(-1, new Angle(45)), new XY(-1,-1), new FRCEncoder(Hardware.dt_bl), new PID(0,0,0), new FRCMotor(Hardware.dt_bl)
-      ),
-      new MotorModule(
-        new Polar(1, new Angle(-45)), new XY(1, -1), new FRCEncoder(Hardware.dt_br), new PID(0,0,0), new FRCMotor(Hardware.dt_br)
-      )  
+            new MotorModule(
+                    new Polar(1, new Angle(45)), new XY(-1, 1),
+                    new FRCEncoder(Hardware.dt_fl), new PID(0, 0, 0), new FRCMotor(Hardware.dt_fl)
+            ),
+            new MotorModule(
+                    new Polar(-1, new Angle(-45)), new XY(1, 1),
+                    new FRCEncoder(Hardware.dt_fr), new PID(0, 0, 0), new FRCMotor(Hardware.dt_fr)
+            ),
+            new MotorModule(
+                    new Polar(1, new Angle(45)), new XY(-1, -1),
+                    new FRCEncoder(Hardware.dt_bl), new PID(0, 0, 0), new FRCMotor(Hardware.dt_bl)
+            ),
+            new MotorModule(
+                    new Polar(-1, new Angle(-45)), new XY(1, -1),
+                    new FRCEncoder(Hardware.dt_br), new PID(0, 0, 0), new FRCMotor(Hardware.dt_br)
+            )
     );
-
   }
 
   public void periodic() {
