@@ -10,6 +10,7 @@ package frc.robot;
 import org.montclairrobotics.alloy.drive.DriveTrain;
 import org.montclairrobotics.alloy.drive.MecanumDrive;
 import org.montclairrobotics.alloy.frc.*;
+import org.montclairrobotics.alloy.motor.MotorGroup;
 import org.montclairrobotics.alloy.motor.MotorModule;
 import org.montclairrobotics.alloy.utils.PID;
 import org.montclairrobotics.alloy.vector.Angle;
@@ -41,33 +42,14 @@ public class Robot extends FRCAlloy {
         button = new FRCButton( new FRCJoystick(1), 1);
         motor = new FRCMotor(Hardware.rIntake);
 
-        //All this is is an instantiation with a lot of stuff it in: Object name = new Object(parameters);
-        //where the parameters also have new objects inside of them
-
-        /*
-        driveTrFRCButtonain = new MecanumDrive(
-                new MotorModule(
-                        new Polar(1, new Angle(45)), new XY(-1, 1),
-                        new FRCEncoder(Hardware.dt_fl), new PID(0, 0, 0), new FRCMotor(Hardware.dt_fl)
-                ),
-                new MotorModule(
-                        new Polar(-1, new Angle(-45)), new XY(1, 1),
-                        new FRCEncoder(Hardware.dt_fr), new PID(0, 0, 0), new FRCMotor(Hardware.dt_fr)
-                ),
-                new MotorModule(
-                        new Polar(1, new Angle(45)), new XY(-1, -1),
-                        new FRCEncoder(Hardware.dt_bl), new PID(0, 0, 0), new FRCMotor(Hardware.dt_bl)
-                ),
-                new MotorModule(
-                        new Polar(-1, new Angle(-45)), new XY(1, -1),
-                        new FRCEncoder(Hardware.dt_br), new PID(0, 0, 0), new FRCMotor(Hardware.dt_br)
-                )
-        ); */
+        new MotorGroup(
+                new MotorInput(button, 0.5),
+                new MotorModule( new XY(0, 0), new Polar(1, Angle.ZERO), motor)
+        );
     }
 
+    @Override
     public void periodic() {
-        if (button.getValue()) {
-            motor.setMotorPower(0.5);
-        }
+
     }
 }
