@@ -34,13 +34,13 @@ public class Robot extends FRCAlloy {
     FRCMotor motor;
 
     public void robotSetup() {
-        motor.enable();
+        Hardware.init();
     }
     public void initialization() {
-        Hardware.init();
-
         button = new FRCButton( new FRCJoystick(1), 1);
         motor = new FRCMotor(Hardware.rIntake);
+
+        motor.enable();
 
         new MotorGroup(
                 new MotorInput(button, 0.5),
